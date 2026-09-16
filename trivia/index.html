@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                let correct_btn = document.querySelector('.correct');
+                let incorrect_btns = document.querySelectorAll('.incorrect');
+                let mcq_feedback = document.querySelector('#mcq-feedback');
+
+                correct_btn.addEventListener('click', function() {
+                    correct_btn.style.backgroundColor = 'green';
+                    mcq_feedback.innerHTML = 'Correct!';
+                });
+
+                for (let i = 0; i < incorrect_btns.length; i++) {
+                    incorrect_btns[i].addEventListener('click', function() {
+                        incorrect_btns[i].style.backgroundColor = 'red';
+                        mcq_feedback.innerHTML = 'Incorrect!';
+                    });
+                }
+
+                let submit_btn = document.querySelector('#submit');
+                let input_field = document.querySelector('#input');
+                let frq_feedback = document.querySelector('#frq-feedback');
+
+                submit_btn.addEventListener('click', function() {
+                    if (input_field.value.toLowerCase() === 'switzerland') {
+                        input_field.style.backgroundColor = 'green';
+                        frq_feedback.innerHTML = 'Correct!';
+                    } else {
+                        input_field.style.backgroundColor = 'red';
+                        frq_feedback.innerHTML = 'Incorrect!';
+                    }
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3>What is the approximate ratio of people to sheep in New Zealand?</h3>
+                <button class="incorrect">6 people per 1 sheep</button>
+                <button class="incorrect">3 people per 1 sheep</button>
+                <button class="incorrect">1 person per 1 sheep</button>
+                <button class="incorrect">1 person per 3 sheep</button>
+                <button class="correct">1 person per 6 sheep</button>
+                <p id="mcq-feedback"></p>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <h3>In which country is it illegal to own only one guinea pig, as a lone guinea pig might get lonely?</h3>
+                <input type="text" id="input">
+                <button id="submit">Check Answer</button>
+                <p id="frq-feedback"></p>
+            </div>
+        </div>
+    </body>
+</html>
