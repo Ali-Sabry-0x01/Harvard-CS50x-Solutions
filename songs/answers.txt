@@ -1,0 +1,2 @@
+In this problem set, I learned how to use SQL queries to analyze a database of songs and artists.
+LIKE, SELECT, WHERE, AND ORDER BY
